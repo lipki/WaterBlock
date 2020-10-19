@@ -1,20 +1,18 @@
-
 # choix de l'événement du jour
+execute if score debug WB matches 1 run say Hier pas d'ile, on a bien dormie, que va t'il ce passer
+
+# choix de l'événement aléatoire
 summon area_effect_cloud 0 0 0
-execute store result score random WW.event run data get entity @e[type=minecraft:area_effect_cloud,limit=1] UUID[0]
-scoreboard players operation random WW.event %= 100 WW
+execute store result score random WB.event run data get entity @e[type=minecraft:area_effect_cloud,limit=1] UUID[0]
+scoreboard players operation random WB.event %= 100 WB
 
 # Si < a 80% : pas d'ile, on place l'index pour larger les loots
-execute if score random WW.event < 80 WW as @e[tag=index] at @s run tp @s ^ ^ ^100
-execute if score random WW.event < 80 WW run scoreboard players operation state WW.state = follow WW.state
+execute if score random WB.event < 80 WB if score debug WB matches 1 run say Rien !
+execute if score random WB.event < 80 WB as @e[tag=index] at @s run tp @s ^ ^2 ^100
+execute if score random WB.event < 80 WB run scoreboard players operation state WB.state = follow WB.state
 
 # Si > a 80% : Stop une île apparait
-execute if score random WW.event >= 80 WW as @e[tag=index] at @s run tp @s ^ ^ ^20
-execute if score random WW.event >= 80 WW run scoreboard players operation state WW.state = ile WW.state
-execute if score random WW.event >= 80 WW run function waterblock:main/spawnile
-
-
-
-  
-
-    
+execute if score random WB.event >= 80 WB if score debug WB matches 1 run say Oh ! une ile
+execute if score random WB.event >= 80 WB as @e[tag=index] at @s run tp @s ^ ^ ^20
+execute if score random WB.event >= 80 WB run scoreboard players operation state WB.state = ile WB.state
+execute if score random WB.event >= 80 WB run function waterblock:main/spawnile

@@ -1,13 +1,9 @@
 # Affichage des fausses coordonées
-scoreboard players operation latitude WW.coo += vectorX WW.stream
-scoreboard players operation longitude WW.coo += vectorZ WW.stream
-scoreboard players operation latitudeDisplay WW.coo = latitude WW.coo
-scoreboard players operation longitudeDisplay WW.coo = longitude WW.coo
-scoreboard players operation latitudeDisplay WW.coo /= 100 WW
-scoreboard players operation longitudeDisplay WW.coo /= 100 WW
+scoreboard players operation latitude WB.coo += vectorX WB.stream
+scoreboard players operation longitude WB.coo += vectorZ WB.stream
+scoreboard players operation latitudeDisplay WB.coo = latitude WB.coo
+scoreboard players operation longitudeDisplay WB.coo = longitude WB.coo
+scoreboard players operation latitudeDisplay WB.coo /= 100 WB
+scoreboard players operation longitudeDisplay WB.coo /= 100 WB
 
-execute if score state WW.state = init WW.state run title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WW.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WW.coo"}}," - State : Init"]}
-execute if score state WW.state = findedge WW.state run title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WW.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WW.coo"}}," - State : Find Edge"]}
-execute if score state WW.state = wait WW.state run title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WW.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WW.coo"}}," - State : Wait"]}
-execute if score state WW.state = follow WW.state run title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WW.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WW.coo"}}," - State : Follow"]}
-execute if score state WW.state = ile WW.state run title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WW.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WW.coo"}}," - State : Ile"]}
+title @a actionbar {"text":"Latitude : ","extra":[{"score":{"name":"latitudeDisplay","objective":"WB.coo"}}," - Longitude : ",{"score":{"name":"longitudeDisplay","objective":"WB.coo"}}]}

@@ -1,14 +1,11 @@
-# Progression du Timer
-execute unless score state WW.state = init WW.state run scoreboard players add ref WW.time 1
 
-execute unless score state WW.state = init WW.state run function waterblock:main/fakecoo
+function waterblock:main/timer
 
-# détection du changement de jour
-execute unless score state WW.state = init WW.state store result score query_daytime WW.time run time query daytime
-execute unless score state WW.state = init WW.state if score query_daytime WW.time >= midnight WW.time run function waterblock:main/allnight
+function waterblock:main/fakecoo
 
-execute if score state WW.state = findedge WW.state run function waterblock:main/findedge
+# permet de définir les limites du radeau
+execute as @a store result score @s onGround run data get entity @s OnGround
+execute as @a at @s if score @s onGround matches 1 unless block ~ 0 ~ minecraft:glowstone run setblock ~ 0 ~ minecraft:glowstone replace
+execute if score findedge WB.stream = 1 WB run function waterblock:main/findedge
 
-execute if score state WW.state = follow WW.state run function waterblock:main/stream
-
-execute if score state WW.state = wait WW.state run function waterblock:main/eventofday
+execute if score state WB.state = follow WB.state run function waterblock:main/stream
