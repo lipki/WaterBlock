@@ -1,0 +1,2 @@
+execute as @e[tag=index] at @s unless block ~ 109 ~ minecraft:water run tp ^ ^ ^1
+execute at @e[tag=index] if block ~ 109 ~ minecraft:water run scoreboard players operation state WW.state = wait WW.state

@@ -1,3 +1,4 @@
+
 # Initialisation des variables et des options de base
 gamerule commandBlockOutput false
 worldborder set 29999984
@@ -13,14 +14,15 @@ scoreboard players set 360 WW 360
 
 # Les états
 scoreboard objectives add WW.state dummy
-scoreboard players set state WW.state 10
+scoreboard players set state WW.state 0
 scoreboard players set init WW.state 10
-scoreboard players set follow WW.state 20
-scoreboard players set morningFollow WW.state 30
-scoreboard players set isle WW.state 40
-scoreboard players set morningIsle WW.state 50
-scoreboard players set bigIsle WW.state 60
-scoreboard players set morningBigIsle WW.state 70
+scoreboard players set findedge WW.state 20
+scoreboard players set wait WW.state 30
+scoreboard players set follow WW.state 40
+scoreboard players set ile WW.state 50
+
+scoreboard players operation state WW.state = init WW.state
+# tester l'état -> execute if score state WW.state = init WW.state run say yes
 
 # Initialisation du timer
 scoreboard objectives add WW.time dummy
@@ -50,12 +52,10 @@ scoreboard players set random WW.event 0
 # nombre fantôme 109 hauteur de l'eau dans la map
 kill @e[type=minecraft:armor_stand]
 summon minecraft:armor_stand 0 109 0 {NoAI:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["origin"]}
-execute at @e[tag=origin] run summon minecraft:armor_stand ~ ~2 ~ {NoAI:1b,Invulnerable:1b,Marker:1b,Tags:["index"]}
-effect give @e[tag=index] minecraft:glowing 999999 99 true
-
-# Cette fonction permet de orienté le courant une première fois
-execute run function waterworld:main/randomstreaminit
+execute at @e[tag=origin] run summon minecraft:armor_stand ~ ~2 ~ {NoAI:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["index"]}
 
 # Créer le radeau
 execute at @e[tag=origin] if block ~ ~ ~ minecraft:water run setblock ~ ~ ~ minecraft:petrified_oak_slab[type=top] replace
 
+# Cette fonction permet d'orienté le courant une première fois (et libère l'éecution du programme en modifiant l'état)
+execute run function waterblock:main/allnight
