@@ -3,7 +3,7 @@ execute if score debug WB matches 1 run say Spawn de l'ile :
 
 effect give @a minecraft:blindness 2 99
 
-# choix de l'ile
+# Nombre aléatoire entre 0 et 5
 summon area_effect_cloud 0 0 0
 execute store result score random WB.event run data get entity @e[type=minecraft:area_effect_cloud,limit=1] UUID[0]
 scoreboard players operation random WB.event %= 6 WB

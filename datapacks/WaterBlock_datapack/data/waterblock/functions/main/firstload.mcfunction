@@ -23,7 +23,7 @@ scoreboard players set follow WB.state 10
 scoreboard players set ile WB.state 20
 
 scoreboard players operation state WB.state = follow WB.state
-# tester l'état -> execute if score state WB.state = follow WB.state run say yes
+# Tester l'état -> execute if score state WB.state = follow WB.state run say yes
 
 # Initialisation du timer
 scoreboard objectives add WB.time dummy
@@ -38,27 +38,26 @@ scoreboard players set query_daytime WB.time 0
 scoreboard players set insomnia WB.time 999999
 scoreboard players set abadnight WB.time 10000
 
-# Fausse coordonées pour simuler le déplacement
+# Fausse coordonnées pour simuler le déplacement
 scoreboard objectives add WB.coo dummy
 scoreboard players set latitude WB.coo 0
 scoreboard players set longitude WB.coo 0
 scoreboard players set latitudeDisplay WB.coo 0
 scoreboard players set longitudeDisplay WB.coo 0
 
-# variable pour le vecteur représentant le courant
+# Variable pour le vecteur représentant le courant
 scoreboard objectives add WB.stream dummy
 scoreboard players set findedge WB.stream 0
 
-# Initialisation des evénements
+# Initialisation des événements
 scoreboard objectives add WB.event dummy
-scoreboard players set anIslande WB.event 0
 scoreboard players set random WB.event 0
 
-# objectif des joueurs
+# Objectif des joueurs
 scoreboard objectives add onGround dummy
 
 # Armor stand servant de référence 0
-# nombre fantôme 109 hauteur de l'eau dans la map
+# Nombre fantôme 109, hauteur de l'eau dans la map
 kill @e[type=minecraft:armor_stand]
 summon minecraft:armor_stand 0 109 0 {NoAI:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["origin"]}
 execute at @e[tag=origin] run summon minecraft:armor_stand ~ ~ ~ {NoAI:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["index"]}
@@ -66,4 +65,5 @@ execute at @e[tag=origin] run summon minecraft:armor_stand ~ ~ ~ {NoAI:1b,Invuln
 # Créer le radeau
 execute at @e[tag=origin] if block ~ ~ ~ minecraft:water run setblock ~ ~ ~ minecraft:petrified_oak_slab[type=top] replace
 
+# Affichage retardé du message d'accueil.
 schedule function waterblock:main/welcome 1s

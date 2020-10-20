@@ -1,4 +1,4 @@
-# Affichage des fausses coordonées
+# Affichage des fausses coordonnées
 scoreboard players operation latitude WB.coo += vectorX WB.stream
 scoreboard players operation longitude WB.coo += vectorZ WB.stream
 scoreboard players operation latitudeDisplay WB.coo = latitude WB.coo
