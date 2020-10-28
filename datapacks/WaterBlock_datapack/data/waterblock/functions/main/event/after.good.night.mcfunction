@@ -1,6 +1,9 @@
 # ouais on a bien dormi
 execute if score debug WB matches 1 run tellraw @a {"text":"on a bien dormi, que va t'il ce passer ?","color":"dark_green"}
 
+# fatigue a zero
+scoreboard players set consciousTime WB.time 0
+
 # D'abord on supprime l'ile précédente
 # Si c'est le lendemain d'une journée d'ile
 execute if score stateofyesterday WB.state = ile WB.state run function waterblock:main/iles/despawn.ile

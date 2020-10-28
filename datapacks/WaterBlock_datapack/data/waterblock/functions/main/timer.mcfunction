@@ -1,16 +1,13 @@
 # Progression du timer
-scoreboard players add ref WB.time 1
+#scoreboard players add ref WB.time 1
 
 # var
 scoreboard players set unconsciousTime WB.time 54000
 
 # Progression de la fatigue
-scoreboard players set var0 WB 0
-scoreboard players operation var0 WB = ref WB.time
-#scoreboard players add var0 WB 27000
-scoreboard players operation var0 WB %= unconsciousTime WB.time
-execute store result bossbar waterblock:exhaustion value run scoreboard players get var0 WB
-execute if score var0 WB matches 0 run function waterblock:main/exhaustion/exhaustion0
+scoreboard players add consciousTime WB.time 1
+execute store result bossbar waterblock:exhaustion value run scoreboard players get consciousTime WB.time
+execute if score consciousTime WB.time >= unconsciousTime WB.time run function waterblock:main/exhaustion/exhaustion0
 
 # Détection de l'Insomnie
 execute store result score var0 WB run time query daytime

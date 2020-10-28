@@ -35,19 +35,16 @@ scoreboard players operation state WB.state = follow WB.state
 # Initialisation du timer
 scoreboard objectives add WB.time dummy
 scoreboard players set ref WB.time 0
-# Temps entre deux évanouisement
-scoreboard players set dayTemp WB.time -1
 scoreboard players set day WB.time -1
 scoreboard players set night WB.time 13000
 scoreboard players set insomnia WB.time 999999
 scoreboard players set abadnight WB.time 10000
+scoreboard players set consciousTime WB.time 27000
 
 # Fausse coordonnées pour simuler le déplacement
 scoreboard objectives add WB.coo dummy
 scoreboard players set latitude WB.coo 0
 scoreboard players set longitude WB.coo 0
-scoreboard players set latitudeDisplay WB.coo 0
-scoreboard players set longitudeDisplay WB.coo 0
 
 # Variable pour le vecteur représentant le courant
 scoreboard objectives add WB.stream dummy
@@ -55,13 +52,10 @@ scoreboard objectives add WB.stream dummy
 # Initialisation des événements
 scoreboard objectives add WB.event dummy
 scoreboard players set unlock.medium WB.event 0
-scoreboard players set random WB.event 0
 
 # identifacation de la taille du radeau
 scoreboard objectives add WB.raft dummy
 scoreboard players set max WB.raft 0
-scoreboard players set findedge WB.raft 0
-
 
 # Armor stand servant de référence 0
 # Nombre fantôme 109, hauteur de l'eau dans la map

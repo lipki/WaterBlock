@@ -26,24 +26,24 @@ execute store result entity @e[tag=index,limit=1] Rotation[0] float 1 run scoreb
 scoreboard players operation angle WB.stream %= 360 WB
 
 # On ce déplace vers le bord du radeau par dichotomie
-execute store result score findedge WB.raft run scoreboard players get max WB.raft
-execute as @e[tag=index] at @s if score findedge WB.raft > 512 WB run tp @s ^ ^ ^512
-execute as @e[tag=index] at @s if score findedge WB.raft > 512 WB run scoreboard players remove findedge WB.raft 512
-execute as @e[tag=index] at @s if score findedge WB.raft > 256 WB run tp @s ^ ^ ^256
-execute as @e[tag=index] at @s if score findedge WB.raft > 256 WB run scoreboard players remove findedge WB.raft 256
-execute as @e[tag=index] at @s if score findedge WB.raft > 128 WB run tp @s ^ ^ ^128
-execute as @e[tag=index] at @s if score findedge WB.raft > 128 WB run scoreboard players remove findedge WB.raft 128
-execute as @e[tag=index] at @s if score findedge WB.raft > 64 WB run tp @s ^ ^ ^64
-execute as @e[tag=index] at @s if score findedge WB.raft > 64 WB run scoreboard players remove findedge WB.raft 64
-execute as @e[tag=index] at @s if score findedge WB.raft > 32 WB run tp @s ^ ^ ^32
-execute as @e[tag=index] at @s if score findedge WB.raft > 32 WB run scoreboard players remove findedge WB.raft 32
-execute as @e[tag=index] at @s if score findedge WB.raft > 16 WB run tp @s ^ ^ ^16
-execute as @e[tag=index] at @s if score findedge WB.raft > 16 WB run scoreboard players remove findedge WB.raft 16
-execute as @e[tag=index] at @s if score findedge WB.raft > 8 WB run tp @s ^ ^ ^8
-execute as @e[tag=index] at @s if score findedge WB.raft > 8 WB run scoreboard players remove findedge WB.raft 8
-execute as @e[tag=index] at @s if score findedge WB.raft > 4 WB run tp @s ^ ^ ^4
-execute as @e[tag=index] at @s if score findedge WB.raft > 4 WB run scoreboard players remove findedge WB.raft 4
-execute as @e[tag=index] at @s if score findedge WB.raft > 2 WB run tp @s ^ ^ ^2
-execute as @e[tag=index] at @s if score findedge WB.raft > 2 WB run scoreboard players remove findedge WB.raft 2
-execute as @e[tag=index] at @s if score findedge WB.raft > 1 WB run tp @s ^ ^ ^1
-execute as @e[tag=index] at @s if score findedge WB.raft > 1 WB run scoreboard players remove findedge WB.raft 1
+execute store result score var0 WB run scoreboard players get max WB.raft
+execute as @e[tag=index] at @s if score var0 WB > 512 WB run tp @s ^ ^ ^512
+execute as @e[tag=index] at @s if score var0 WB > 512 WB run scoreboard players remove var0 WB 512
+execute as @e[tag=index] at @s if score var0 WB > 256 WB run tp @s ^ ^ ^256
+execute as @e[tag=index] at @s if score var0 WB > 256 WB run scoreboard players remove var0 WB 256
+execute as @e[tag=index] at @s if score var0 WB > 128 WB run tp @s ^ ^ ^128
+execute as @e[tag=index] at @s if score var0 WB > 128 WB run scoreboard players remove var0 WB 128
+execute as @e[tag=index] at @s if score var0 WB > 64 WB run tp @s ^ ^ ^64
+execute as @e[tag=index] at @s if score var0 WB > 64 WB run scoreboard players remove var0 WB 64
+execute as @e[tag=index] at @s if score var0 WB > 32 WB run tp @s ^ ^ ^32
+execute as @e[tag=index] at @s if score var0 WB > 32 WB run scoreboard players remove var0 WB 32
+execute as @e[tag=index] at @s if score var0 WB > 16 WB run tp @s ^ ^ ^16
+execute as @e[tag=index] at @s if score var0 WB > 16 WB run scoreboard players remove var0 WB 16
+execute as @e[tag=index] at @s if score var0 WB > 8 WB run tp @s ^ ^ ^8
+execute as @e[tag=index] at @s if score var0 WB > 8 WB run scoreboard players remove var0 WB 8
+execute as @e[tag=index] at @s if score var0 WB > 4 WB run tp @s ^ ^ ^4
+execute as @e[tag=index] at @s if score var0 WB > 4 WB run scoreboard players remove var0 WB 4
+execute as @e[tag=index] at @s if score var0 WB > 2 WB run tp @s ^ ^ ^2
+execute as @e[tag=index] at @s if score var0 WB > 2 WB run scoreboard players remove var0 WB 2
+execute as @e[tag=index] at @s if score var0 WB > 1 WB run tp @s ^ ^ ^1
+execute as @e[tag=index] at @s if score var0 WB > 1 WB run scoreboard players remove var0 WB 1
