@@ -1,0 +1,1 @@
+scoreboard players set unlock.medium WB.event 1

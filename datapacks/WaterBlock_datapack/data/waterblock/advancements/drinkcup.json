@@ -1,0 +1,22 @@
+{
+    "display": {
+      "icon": {
+        "item": "minecraft:water_bucket"
+      },
+      "title": "Bloup !",
+      "description": "Ola ! You drink the cup !",
+      "frame": "challenge",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": true
+    },
+    "parent": "waterblock:root",
+    "criteria": {
+      "start": {
+        "trigger": "minecraft:enter_block",
+        "conditions": {
+          "block": "minecraft:water"
+        }
+      }
+    }
+  }
